@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Student Directory</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Directory</h1>
+    <p>Welcome to </p>
+<ul>
+  <% for(var i=0, x=students.length;i<x;i++){ %>
+    <li><a href="/students/<%= students[i]._id %>"><%= students[i].name %></a></li>
+
+  <% } %>
+</ul>
+
   </body>
 </html>
+<ul>
+    <% for(var i=0, x=races.length; i<x; i++){ %>
+        <li><a href="/races/<%= races[i]._id %>"><%= races[i].name %></a></li>
+  <% }%>
+  </ul>

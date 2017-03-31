@@ -1,0 +1,25 @@
+var express = require('express');
+var router = express.Router();
+
+var Student = require('../models/student');
+
+router.get('/', function(req, res, next) {
+  Student.find({}, function(err, students){
+    if(err){console.log('Error: ', err);}
+    //console.log('Students: ', students);
+      res.render('students/index', {
+      students: students
+    });
+  });
+});
+
+router.get('/:studentId', function(req, res) {
+  Student.findById(req.params.studentId, function(err, student){
+    if(err){console.log('Error: ', err);}
+    res.render('students/show',{
+      student: student
+    });
+  });
+});
+
+module.exports = router;
