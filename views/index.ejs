@@ -5,8 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Directory</h1>
-    <p>Welcome to </p>
+    <h1>Student Directory</h1>
+    <p>Welcome to the jungle!</p>
+
+    <form class="students" action="/students/" + option.val()  method="post">
+      <select name="students">
+        <option value="null">null</option>
+        <% for(var i=0, x=students.length;i<x;i++){ %>
+        <option value="<%= students[i]._id %>"><%= students[i].name %></option>
+        <% } %>
+        <input type="submit" value="Left_Shark">
+      </select>
+
+    </form>
+
+
+    <ul class="students">
+      <% students.sort().forEach(function(students,index){ %>
+        <li><a href="/students/<%= students._id %>"><%= students.name %></a></li>
+      <%}); %>
+
 <ul>
   <% for(var i=0, x=students.length;i<x;i++){ %>
     <li><a href="/students/<%= students[i]._id %>"><%= students[i].name %></a></li>
@@ -14,10 +32,7 @@
   <% } %>
 </ul>
 
+
+
   </body>
 </html>
-<ul>
-    <% for(var i=0, x=races.length; i<x; i++){ %>
-        <li><a href="/races/<%= races[i]._id %>"><%= races[i].name %></a></li>
-  <% }%>
-  </ul>
